@@ -80,6 +80,7 @@ const IletisimFormu = () => {
             value={form.ad}
             id="ad"
             placeholder="İlhan"
+            data-testid="isimInput"//Test için eklendi
           />
           {(errors.ad) && <p data-testid="error">Hata: {errors.ad}</p>}
         </div>
@@ -92,6 +93,7 @@ const IletisimFormu = () => {
             name="soyad"
             value={form.soyad}
             placeholder="Mansız"
+            data-testid="soyadInput"//Test için eklendi
           />
           {(errors.soyad) && <p data-testid="error">Hata: {errors.soyad}</p>}
         </div>
@@ -104,6 +106,7 @@ const IletisimFormu = () => {
             name="email"
             value={form.email}
             placeholder="yüzyılıngolcüsü@hotmail.com"
+            data-testid="emailInput"//Test için eklendi
           />
           {(errors.email) && <p data-testid="error">Hata: {errors.email}</p>}
         </div>
@@ -121,7 +124,7 @@ const IletisimFormu = () => {
 
         {displayData && <Goruntule form={form}/>}
 
-        <button>Gönder</button>
+        <button data-testid="buttonSubmitTest">Gönder</button>
       </form>
     </div>
   );
