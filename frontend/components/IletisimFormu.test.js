@@ -4,16 +4,20 @@ import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 import IletisimFormu from './IletisimFormu';
 
+beforeEach(() => {
+  render(<IletisimFormu/>);
+});
+
 test('hata olmadan render ediliyor', () => {
   //Arrange
-  render(<IletisimFormu/>);
+  // render(<IletisimFormu/>); beforeeach kullanildiğı için gerek kalmadı
 
 
 });
 
 test('iletişim formu headerı render ediliyor', () => { 
   //Arrange
-  render(<IletisimFormu/>);
+  // render(<IletisimFormu/>); beforeeach kullanildiğı için gerek kalmadı
   //Act
   const header = screen.getByText(/İletişim Formu/i);
   //Assert
@@ -23,7 +27,7 @@ test('iletişim formu headerı render ediliyor', () => {
 
 test('kullanıcı adını 5 karakterden az girdiğinde BİR hata mesajı render ediyor.', async () => {
   //Arrange
-  render(<IletisimFormu/>);
+  // render(<IletisimFormu/>); beforeeach kullanildiğı için gerek kalmadı
   //Act
   const isimInput = screen.getByTestId("isimInput");
   userEvent.type(isimInput, 'ekan');
@@ -36,7 +40,7 @@ test('kullanıcı adını 5 karakterden az girdiğinde BİR hata mesajı render 
 
 test('kullanıcı inputları doldurmadığında ÜÇ hata mesajı render ediliyor.', async () => {
   //Arrange
-  render(<IletisimFormu/>);
+  // render(<IletisimFormu/>); beforeeach kullanildiğı için gerek kalmadı
   //Act
   const buttonSubmit = screen.getByTestId("buttonSubmitTest");
   userEvent.click(buttonSubmit);
@@ -49,7 +53,7 @@ test('kullanıcı inputları doldurmadığında ÜÇ hata mesajı render ediliyo
 
 test('kullanıcı doğru ad ve soyad girdiğinde ama email girmediğinde BİR hata mesajı render ediliyor.', async () => {
   //Arrange
-  render(<IletisimFormu/>);
+  // render(<IletisimFormu/>); beforeeach kullanildiğı için gerek kalmadı
   //Act
   const isimInput = screen.getByTestId("isimInput");
   userEvent.type(isimInput, 'Serkan');
@@ -65,7 +69,7 @@ test('kullanıcı doğru ad ve soyad girdiğinde ama email girmediğinde BİR ha
 
 test('geçersiz bir mail girildiğinde "email geçerli bir email adresi olmalıdır." hata mesajı render ediliyor', async () => {
    //Arrange
-   render(<IletisimFormu/>);
+  //  render(<IletisimFormu/>); beforeeach kullanildiğı için gerek kalmadı
   //Act
   const emailInput = screen.getByLabelText("Email*");
   userEvent.type(emailInput, 'Toraman');
@@ -78,7 +82,7 @@ test('geçersiz bir mail girildiğinde "email geçerli bir email adresi olmalıd
 
 test('soyad girilmeden gönderilirse "soyad gereklidir." mesajı render ediliyor', async () => {
    //Arrange
-   render(<IletisimFormu/>);
+  //  render(<IletisimFormu/>); beforeeach kullanildiğı için gerek kalmadı
    //Act
    const isimInput = screen.getByLabelText("Ad*"); //ID'den degil labelTextten aldim
    userEvent.type(isimInput, 'Serkan');
@@ -95,7 +99,7 @@ test('soyad girilmeden gönderilirse "soyad gereklidir." mesajı render ediliyor
 
 test('ad,soyad, email render ediliyor. mesaj bölümü doldurulmadığında hata mesajı render edilmiyor.', async () => {
   //Arrange
-  render(<IletisimFormu/>);
+  // render(<IletisimFormu/>); beforeeach kullanildiğı için gerek kalmadı
   //Act
   const isimInput = screen.getByTestId("isimInput");
   userEvent.type(isimInput, 'Serkan');
@@ -114,7 +118,7 @@ test('ad,soyad, email render ediliyor. mesaj bölümü doldurulmadığında hata
 
 test('form gönderildiğinde girilen tüm değerler render ediliyor.', async () => {
   //Arrange
-  render(<IletisimFormu/>);
+  // render(<IletisimFormu/>); beforeeach kullanildiğı için gerek kalmadı
   //Act
   const isimInput = screen.getByTestId("isimInput");
   userEvent.type(isimInput, 'Serkan');
